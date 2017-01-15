@@ -37,12 +37,10 @@ var handlers = {
             });
             break;
           case 'what':
-            response = "You asked what do you see";
-            this.emit(':tell', response, response);
-            break;
           case 'describe what':
-            response = "You asked to describe what you see";
-            this.emit(':tell', response, response);
+            sendRequest('what', 'get', undefined, (err, data)=> {
+              this.emit(':tell', err || data, err || data);
+            });
             break;
           case 'who was here':
             response = "You asked who was here";
