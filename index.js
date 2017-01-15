@@ -42,6 +42,12 @@ var handlers = {
               this.emit(':tell', err || data, err || data);
             });
             break;
+          case 'is there a package':
+          case 'is my package here':
+            sendRequest('package', 'get', undefined, (err, data)=> {
+              this.emit(':tell', err || data, err || data);
+            });
+            break;
           case 'who was here':
             response = "You asked who was here";
             this.emit(':tell', response, response);

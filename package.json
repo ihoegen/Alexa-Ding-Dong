@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ihoegen/alexa-dingdong"
+    "url": "git+https://github.com/ihoegen/alexa-ding-dong"
   },
   "keywords": [
     "Alexa",
@@ -18,9 +18,9 @@
   "author": "Ian Hoegen",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/ihoegen/alexa-baseball-scores/issues"
+    "url": "https://github.com/ihoegen/alexa-ding-dong/issues"
   },
-  "homepage": "https://github.com/ihoegen/alexa-baseball-scores#readme",
+  "homepage": "https://github.com/ihoegen/alexa-ding-dong#readme",
   "dependencies": {
     "alexa-sdk": "^1.0.0",
     "querystring": "^0.2.0",
