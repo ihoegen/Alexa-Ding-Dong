@@ -8,7 +8,6 @@ function sendRequest(endpoint, type, data, callback) {
       callback(error, body);
     });
   } else {
-    console.log('called');
     request.post({url:hostname, form: data},
       function(err,httpResponse,body){
         callback(err, httpResponse.statusCode, body);

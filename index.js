@@ -84,8 +84,18 @@ var handlers = {
               this.emit(':tell', 'Invalid name', 'Invalid name');
             }
             break;
+          case 'update a person':
+            var nameSlot = this.event.request.intent.slots.FirstName;
+            if (nameSlot && nameSlot.value) {
+              sendRequest('update', 'post', {name: nameSlot.value}, (err, code, data)=> {
+                this.emit(':tell', err || data, err || data);
+              });
+            } else {
+              this.emit(':tell', 'Invalid name', 'Invalid name');
+            }
+            break;
           default:
-            this.emit(':ask', speechOutput, repromptSpeech);
+            this.emit(':ask', 'You said: '+ querySlot + ' ' +  speechOutput, repromptSpeech);
             break;
         }
       } catch (err) {
