@@ -27,10 +27,6 @@ var handlers = {
         var response = "";
         switch (querySlot) {
           case 'who':
-            sendRequest('whois', 'get', undefined, (err, data) => {
-              this.emit(':tell', err || data, err || data);
-            });
-            break;
           case 'who is':
             sendRequest('whois', 'get', undefined, (err, data)=> {
               this.emit(':tell', err || data, err || data);
@@ -49,8 +45,16 @@ var handlers = {
             });
             break;
           case 'who was here':
-            response = "You asked who was here";
-            this.emit(':tell', response, response);
+            sendRequest('whowas', 'get', undefined, (err, data)=> {
+              if (!err) {
+                var parsedData = JSON.parse(data);
+                var phrase = parsedData.length == 0 ? "No one was here today" : "The following people were here today: "
+                for (var i in parsedData) {
+                  phrase += parsedData[i].name + ' at ' + parsedData[i].time + ', ';
+                }
+              }
+              this.emit(':tell', err || phrase, err || phrase);
+            });
             break;
           case 'anyone':
             response = "You asked if anyone";
