@@ -73,16 +73,15 @@ var handlers = {
           case 'here':
             var nameSlot = this.event.request.intent.slots.FirstName;
             if (nameSlot && nameSlot.value) {
-              sendRequest('whenwas', 'post', {name: nameSlot.value}, (err, data)=> {
-                this.emit(':tell', err || data, err || data);
+              sendRequest('whenwas', 'post', {name: nameSlot.value}, (err, code, data)=> {
+                this.emit(':tell', err || nameSlot.value + ' was last here on ' + data, err || nameSlot.value + ' was last here on '  + data);
               });
             } else {
               this.emit(':tell', 'Invalid name', 'Invalid name');
             }
             break;
           default:
-            response = "That ain't an option";
-            this.emit(':tell', response, response);
+            this.emit(':ask', speechOutput, repromptSpeech);
             break;
         }
       } catch (err) {

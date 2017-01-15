@@ -11,7 +11,7 @@ function sendRequest(endpoint, type, data, callback) {
     console.log('called');
     request.post({url:hostname, form: data},
       function(err,httpResponse,body){
-        callback(err, httpResponse.statusCode);
+        callback(err, httpResponse.statusCode, body);
       }
     );
   }
