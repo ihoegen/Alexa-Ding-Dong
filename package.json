@@ -1,0 +1,29 @@
+{
+  "name": "alexa-dingdong",
+  "version": "1.0.0",
+  "description": "Alexa integration for cameras",
+  "main": "./index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ihoegen/alexa-dingdong"
+  },
+  "keywords": [
+    "Alexa",
+    "skill",
+    "Ding Dong"
+  ],
+  "author": "Ian Hoegen",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ihoegen/alexa-baseball-scores/issues"
+  },
+  "homepage": "https://github.com/ihoegen/alexa-baseball-scores#readme",
+  "dependencies": {
+    "alexa-sdk": "^1.0.0",
+    "querystring": "^0.2.0",
+    "request": "^2.79.0"
+  }
+}
